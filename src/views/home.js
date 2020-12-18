@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { buyUrl, adminRoot } from '../constants/defaultValues';
 import { NavLink } from 'react-router-dom';
 import { Nav, NavItem, TabContent, TabPane } from 'reactstrap';
 import classnames from 'classnames';
-import GlideComponent from '../components/carousel/GlideComponent';
 import { scroller } from 'react-scroll';
 import Headroom from 'react-headroom';
+import GlideComponent from '../components/carousel/GlideComponent';
+import { buyUrl, adminRoot, loginUrl } from '../constants/defaultValues';
 
 const slideSettings = {
   type: 'carousel',
@@ -376,9 +376,9 @@ const Home = () => {
                     className="btn btn-outline-semi-light btn-sm pr-4 pl-4"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={buyUrl}
+                    href={loginUrl}
                   >
-                    BUY
+                    Login
                   </a>
                 </li>
               </ul>
@@ -410,19 +410,21 @@ const Home = () => {
 
                 <div className="col-12 col-xl-4 col-lg-5 col-md-6">
                   <div className="home-text">
-                    <div className="display-1">
-                      MAGIC IS IN <br />
-                      THE DETAILS
-                    </div>
+                    <div className="display-1">Clean Fill Network</div>
                     <p className="white mb-5">
-                      Gogo is the combination of good design, quality code and
-                      attention for details.
+                      You can get free fill dirt, increase productivity and
+                      profitability with this dirt network.
                       <br />
                       <br />
-                      We used same design language for components, layouts, apps
-                      and other parts of the template. <br />
+                      “Where to get fill dirt near me” is the most popular
+                      question on google, you found it clean fill network.{' '}
                       <br />
-                      Hope you enjoy it!
+                      <br />
+                      From clean fill dirt dump sites to clean fill dirt for
+                      sale near me, clean fill network is the only place you can
+                      get free topsoil. So the next time you’re looking for
+                      clean fill dirt for sale, post a classified ad here for
+                      free.
                     </p>
                     <NavLink
                       className="btn btn-light btn-xl mr-2 mb-2"
