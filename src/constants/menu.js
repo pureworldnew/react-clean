@@ -2,19 +2,6 @@ import { adminRoot } from './defaultValues';
 
 const data = [
   {
-    id: 'gogo',
-    icon: 'iconsminds-air-balloon-1',
-    label: 'menu.gogo',
-    to: `${adminRoot}/gogo`,
-    subs: [
-      {
-        icon: 'simple-icon-paper-plane',
-        label: 'menu.start',
-        to: `${adminRoot}/gogo/start`,
-      },
-    ],
-  },
-  {
     id: 'ui',
     icon: 'iconsminds-pantone',
     label: 'menu.ui',
@@ -148,30 +135,51 @@ const data = [
     ],
   },
   {
-    id: 'secondmenu',
-    icon: 'iconsminds-three-arrow-fork',
-    label: 'menu.second-menu',
-    to: `${adminRoot}/second-menu`,
+    id: 'listings',
+    icon: 'iconsminds-air-balloon-1',
+    label: 'menu.listings',
+    to: `${adminRoot}/listings`,
     subs: [
       {
         icon: 'simple-icon-paper-plane',
-        label: 'menu.second',
-        to: `${adminRoot}/second-menu/second`,
+        label: 'menu.need',
+        to: `${adminRoot}/listings/need`,
+      },
+      {
+        icon: 'simple-icon-paper-plane',
+        label: 'menu.have',
+        to: `${adminRoot}/listings/have`,
+      },
+      {
+        icon: 'simple-icon-paper-plane',
+        label: 'menu.contactor',
+        to: `${adminRoot}/listings/contactor`,
       },
     ],
   },
   {
-    id: 'blankpage',
+    id: 'myprofile',
     icon: 'iconsminds-bucket',
-    label: 'menu.blank-page',
-    to: `${adminRoot}/blank-page`,
+    label: 'menu.my-profile',
+    to: `${adminRoot}/my-profile`,
   },
   {
-    id: 'docs',
-    icon: 'iconsminds-library',
-    label: 'menu.docs',
-    to: 'https://gogo-react-docs.coloredstrategies.com/',
-    newWindow: true,
+    id: 'editprofile',
+    icon: 'iconsminds-bucket',
+    label: 'menu.edit-profile',
+    to: `${adminRoot}/edit-profile`,
+  },
+  {
+    id: 'mylistings',
+    icon: 'iconsminds-bucket',
+    label: 'menu.my-listings',
+    to: `${adminRoot}/my-listings`,
+  },
+  {
+    id: 'emailnotification',
+    icon: 'iconsminds-bucket',
+    label: 'menu.settings',
+    to: `${adminRoot}/settings`,
   },
 ];
 export default data;

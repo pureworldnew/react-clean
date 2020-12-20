@@ -33,7 +33,7 @@ const Register = ({ history }) => {
       <Colxx xxs="12" md="10" className="mx-auto my-auto">
         <Card className="auth-card">
           <div className="position-relative image-side ">
-            <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
+            <p className="text-white h2">Use your Clean Fill Network Account</p>
             <p className="white mb-0">
               Please use this form to register. <br />
               If you are a member, please{' '}
@@ -44,9 +44,9 @@ const Register = ({ history }) => {
             </p>
           </div>
           <div className="form-side">
-            <NavLink to="/" className="white">
+            {/* <NavLink to="/" className="white">
               <span className="logo-single" />
-            </NavLink>
+            </NavLink> */}
             <CardTitle className="mb-4">
               <IntlMessages id="user.register" />
             </CardTitle>
