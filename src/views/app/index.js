@@ -7,6 +7,8 @@ import AppLayout from '../../layout/AppLayout';
 const Gogo = React.lazy(() =>
   import(/* webpackChunkName: "viwes-gogo" */ './gogo')
 );
+const Ui = React.lazy(() => import(/* webpackChunkName: "ui" */ './ui'));
+
 const SecondMenu = React.lazy(() =>
   import(/* webpackChunkName: "viwes-second-menu" */ './second-menu')
 );
@@ -24,6 +26,10 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/gogo`}
               render={(props) => <Gogo {...props} />}
+            />
+            <Route
+              path={`${match.url}/ui`}
+              render={(props) => <Ui {...props} />}
             />
             <Route
               path={`${match.url}/second-menu`}
