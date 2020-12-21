@@ -12,7 +12,7 @@ import Settings from './settings';
 const Gogo = React.lazy(() =>
   import(/* webpackChunkName: "viwes-gogo" */ './gogo')
 );
-const Ui = React.lazy(() => import(/* webpackChunkName: "ui" */ './ui'));
+// const Ui = React.lazy(() => import(/* webpackChunkName: "ui" */ './ui'));
 
 const SecondMenu = React.lazy(() =>
   import(/* webpackChunkName: "viwes-second-menu" */ './second-menu')
@@ -40,10 +40,10 @@ const App = ({ match }) => {
               path={`${match.url}/listings`}
               render={(props) => <Listings {...props} />}
             />
-            <Route
+            {/* <Route
               path={`${match.url}/ui`}
               render={(props) => <Ui {...props} />}
-            />
+            /> */}
             <Route
               path={`${match.url}/second-menu`}
               render={(props) => <SecondMenu {...props} />}
