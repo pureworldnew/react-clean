@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, Label, Input, FormText, Form } from 'reactstrap';
+import { FormGroup, Label, Input, Form } from 'reactstrap';
 import IntlMessages from '../../helpers/IntlMessages';
 
 const CubeDimension = () => {

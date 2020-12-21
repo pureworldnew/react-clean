@@ -11,7 +11,6 @@ import classnames from 'classnames';
 import IntlMessages from '../../helpers/IntlMessages';
 import DatatablePagination from '../../components/DatatablePagination';
 
-import contactors from '../../data/contactors';
 import haveListing from '../../data/haveListing';
 
 function Table({ columns, data, divided = false, defaultPageSize = 6 }) {

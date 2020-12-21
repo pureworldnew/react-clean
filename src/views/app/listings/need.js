@@ -94,8 +94,6 @@ const Need = ({ match }) => {
   const [selectedSoilReport, setSelectedSoilReport] = useState('');
   const [inputAddress, setInputAddress] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('');
-  const [selectedProvinceState, setSelectedProvinceState] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
 
   return (
     <>

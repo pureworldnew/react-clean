@@ -4,33 +4,22 @@ import {
   Card,
   CardBody,
   CardTitle,
-  Dropdown,
   DropdownToggle,
   DropdownItem,
   DropdownMenu,
   ButtonDropdown,
   Button,
-  CardSubtitle,
-  UncontrolledDropdown,
   Input,
   FormGroup,
   Label,
-  CustomInput,
-  FormText,
   Form,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import { Nav, NavItem, TabContent, TabPane } from 'reactstrap';
 import classnames from 'classnames';
 import { scroller } from 'react-scroll';
 import Headroom from 'react-headroom';
 import GlideComponent from '../components/carousel/GlideComponent';
-import {
-  buyUrl,
-  adminRoot,
-  loginUrl,
-  registerUrl,
-} from '../constants/defaultValues';
+import { loginUrl, registerUrl } from '../constants/defaultValues';
 import IntlMessages from '../helpers/IntlMessages';
 import { Colxx } from '../components/common/CustomBootstrap';
 import { ReactTableWithPaginationCard } from '../containers/ui/ContactorTableCard';
@@ -39,7 +28,6 @@ import CustomInputShape from '../containers/forms/CustomInputShape';
 import CubeDimension from '../containers/forms/CubeDimension';
 import CurrentUnitSelect from '../containers/forms/CurrentUnitSelect';
 import NewUnitSelect from '../containers/forms/NewUnitSelect';
-import ContactForm from '../containers/forms/ContactForm';
 
 const slideSettings = {
   type: 'carousel',
@@ -227,9 +215,6 @@ const Home = (intl) => {
   const refRowHome = useRef(null);
   const refSectionHome = useRef(null);
   const refSectionFooter = useRef(null);
-  const [activeTab, setActiveTab] = useState(0);
-
-  const { messages } = intl;
 
   useEffect(() => {
     window.addEventListener('scroll', onWindowScroll);
@@ -277,10 +262,6 @@ const Home = (intl) => {
       offset: -100,
     });
     return false;
-  };
-
-  const toggle = (tab) => {
-    if (activeTab !== tab) setActiveTab(tab);
   };
 
   return (
@@ -946,9 +927,8 @@ const Home = (intl) => {
                   <div className="text-center mb-3">
                     <a
                       className="btn btn-secondary btn-xl"
-                      target="_blank"
                       rel="noopener noreferrer"
-                      href={buyUrl}
+                      href={registerUrl}
                     >
                       REGISTER NOW
                     </a>

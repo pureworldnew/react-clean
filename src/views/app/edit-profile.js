@@ -7,9 +7,7 @@ import {
   CardTitle,
   FormGroup,
   Label,
-  CustomInput,
   Button,
-  FormText,
   Form,
 } from 'reactstrap';
 import IntlMessages from '../../helpers/IntlMessages';

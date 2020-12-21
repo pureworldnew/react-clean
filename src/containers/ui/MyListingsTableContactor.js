@@ -12,8 +12,6 @@ import IntlMessages from '../../helpers/IntlMessages';
 import DatatablePagination from '../../components/DatatablePagination';
 
 import contactorListing from '../../data/contactorListing';
-import haveListing from '../../data/haveListing';
-import needListing from '../../data/needListing';
 
 function Table({ columns, data, divided = false, defaultPageSize = 6 }) {
   const {
