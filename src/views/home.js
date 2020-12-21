@@ -14,6 +14,8 @@ import {
   Label,
   Form,
 } from 'reactstrap';
+import Select from 'react-select';
+
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { scroller } from 'react-scroll';
@@ -28,6 +30,8 @@ import CustomInputShape from '../containers/forms/CustomInputShape';
 import CubeDimension from '../containers/forms/CubeDimension';
 import CurrentUnitSelect from '../containers/forms/CurrentUnitSelect';
 import NewUnitSelect from '../containers/forms/NewUnitSelect';
+import CustomSelectInput from '../components/common/CustomSelectInput';
+import { getCurrentUser } from '../helpers/Utils';
 
 const slideSettings = {
   type: 'carousel',
@@ -207,10 +211,58 @@ const faqs = [
   },
 ];
 
-const Home = (intl) => {
+const selectCountry = [
+  {
+    label: 'Canada',
+    value: 'canada',
+    key: 0,
+  },
+  {
+    label: 'United States',
+    value: 'united_states',
+    key: 1,
+  },
+  {
+    label: 'Australia',
+    value: 'australia',
+    key: 2,
+  },
+  {
+    label: 'New Zealand',
+    value: 'new_zealand',
+    key: 3,
+  },
+  {
+    label: 'Ireland',
+    value: 'ireland',
+    key: 4,
+  },
+  {
+    label: 'Norway',
+    value: 'norway',
+    key: 5,
+  },
+  {
+    label: 'United Kingdom',
+    value: 'uk',
+    key: 6,
+  },
+];
+const selectData = [
+  { label: 'Cubic Feet', value: 'cubicFeet', key: 0 },
+  { label: 'Cubic Metres', value: 'cubicMetres', key: 1 },
+  { label: 'Cubic Yards', value: 'cubicYards', key: 2 },
+];
+
+const Home = ({ history }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isOpenSizingLg, setIsOpenSizingLg] = useState(false);
   const [isOpenHaveFill, setIsOpenHaveFill] = useState(false);
+  const [isOpenSearchNeedFill, setOpenSearchNeedFill] = useState(false);
+  const [isOpenSearchHaveFill, setOpenSearchHaveFill] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState('');
+
+  const [selectedOption, setSelectedOption] = useState('');
 
   const refRowHome = useRef(null);
   const refSectionHome = useRef(null);
@@ -328,7 +380,7 @@ const Home = (intl) => {
             <a
               className="c-pointer"
               href="#scroll"
-              onClick={(event) => scrollTo(event, 'themes')}
+              onClick={(event) => scrollTo(event, 'contact')}
             >
               CONTACT US
             </a>
@@ -419,7 +471,7 @@ const Home = (intl) => {
                   <a
                     className="c-pointer"
                     href="#scroll"
-                    onClick={(event) => scrollTo(event, 'themes')}
+                    onClick={(event) => scrollTo(event, 'contact')}
                   >
                     CONTACT US
                   </a>
@@ -506,10 +558,21 @@ const Home = (intl) => {
                         <IntlMessages id="dropdowns.need-fill" />
                       </DropdownToggle>
                       <DropdownMenu>
-                        <DropdownItem>
+                        <DropdownItem
+                          onClick={() => {
+                            setOpenSearchNeedFill(true);
+                            setOpenSearchHaveFill(false);
+                          }}
+                        >
                           <IntlMessages id="dropdowns.search-need-fill" />
                         </DropdownItem>
-                        <DropdownItem>
+                        <DropdownItem
+                          onClick={() => {
+                            getCurrentUser()
+                              ? history.push('/app/listings/need')
+                              : history.push(loginUrl);
+                          }}
+                        >
                           <IntlMessages id="dropdowns.post-need-fill" />
                         </DropdownItem>
                       </DropdownMenu>
@@ -523,41 +586,220 @@ const Home = (intl) => {
                         <IntlMessages id="dropdowns.have-fill" />
                       </DropdownToggle>
                       <DropdownMenu>
-                        <DropdownItem>
+                        <DropdownItem
+                          onClick={() => {
+                            setOpenSearchHaveFill(true);
+                            setOpenSearchNeedFill(false);
+                          }}
+                        >
                           <IntlMessages id="dropdowns.search-have-fill" />
                         </DropdownItem>
-                        <DropdownItem>
+                        <DropdownItem
+                          onClick={() => {
+                            getCurrentUser()
+                              ? history.push('/app/listings/have')
+                              : history.push(loginUrl);
+                          }}
+                        >
                           <IntlMessages id="dropdowns.post-have-fill" />
                         </DropdownItem>
                       </DropdownMenu>
                     </ButtonDropdown>
                   </div>
-                  {/* <ButtonDropdown
-                    direction="down"
-                    className="mr-1 mb-5"
-                    isOpen={btnDropUp}
-                    toggle={() => setBtnDropUp(!btnDropUp)}
-                  >
-                    <DropdownToggle caret>
-                      <IntlMessages id="dropdowns.dropup" />
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>
-                        <IntlMessages id="dropdowns.another-action" />
-                      </DropdownItem>
-                      <DropdownItem>
-                        <IntlMessages id="dropdowns.another-action" />
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </ButtonDropdown> */}
-                  {/* <NavLink to={adminRoot}>
-                    <img
-                      alt="hero"
-                      src="/assets/img/landing-page/home-hero.png"
-                    />
-                  </NavLink> */}
                 </div>
               </div>
+              {isOpenSearchNeedFill ? (
+                <div className="text-white">
+                  <Row>
+                    <Colxx xxs="12" className="mb-4 text-white">
+                      <div className="text-white need-search-heading mb-4">
+                        Clean Fill Wanted near me
+                      </div>
+                      <div className="text-white need-search-sub-heading mb-4">
+                        Clean Fill Wanted Directory
+                      </div>
+
+                      <p className="text-white">
+                        To find a member who needs clean fill, has a
+                        property/company that needs loads, use this Search Tool
+                        to view the “Need Fill” listings based on your criteria.
+                        It is your best solution for saving time, manpower and
+                        most of all money.
+                      </p>
+                      <div className="font-weight-bold mb-4">
+                        Please select a location.
+                      </div>
+                      <div>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <label>
+                              <IntlMessages id="forms.general-country" />
+                            </label>
+                            <Select
+                              components={{ Input: CustomSelectInput }}
+                              className="react-select"
+                              classNamePrefix="react-select"
+                              name="form-field-name"
+                              value={selectedCountry}
+                              onChange={setSelectedCountry}
+                              options={selectCountry}
+                            />
+                          </Colxx>
+                        </Row>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <label>
+                              <IntlMessages id="forms.province-state" />
+                            </label>
+                            <Select
+                              components={{ Input: CustomSelectInput }}
+                              className="react-select"
+                              classNamePrefix="react-select"
+                              name="form-field-name"
+                              value={selectedOption}
+                              onChange={setSelectedOption}
+                              options={selectData}
+                            />
+                          </Colxx>
+                        </Row>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <Label for="city">
+                              <IntlMessages id="forms.city" />
+                            </Label>
+                            <Input type="text" name="city" id="city" />
+                          </Colxx>
+                        </Row>
+
+                        <Row>
+                          <p className="text-center text-white mx-auto">
+                            *Your Country is not listed?
+                            <a
+                              className="c-pointer ml-4 text-warning"
+                              href="#scroll"
+                              onClick={(event) => scrollTo(event, 'contact')}
+                            >
+                              Contact us!
+                            </a>
+                          </p>
+                        </Row>
+                        <Row>
+                          <Button color="primary" className="mx-auto">
+                            <IntlMessages id="landing.search-button" />
+                          </Button>
+                        </Row>
+                      </div>
+                    </Colxx>
+                  </Row>
+                </div>
+              ) : (
+                ''
+              )}
+              {isOpenSearchHaveFill ? (
+                <div className="text-white">
+                  <Row>
+                    <Colxx xxs="12" className="mb-4 text-white">
+                      <div className="text-white need-search-heading mb-4">
+                        Clean Fill Near me
+                      </div>
+                      <div className="text-white need-search-sub-heading mb-4">
+                        Clean Fill Directory
+                      </div>
+
+                      <p className="text-white">
+                        To find a member who has available Fill, use this Search
+                        Tool to view the “Have Fill” listings based on your
+                        selection criteria. It is your best solution for saving
+                        time, manpower and most of all money.
+                      </p>
+                      <div className="font-weight-bold mb-4">
+                        Please select one or more Fill Types and any location or
+                        time period(s) if preferred.
+                      </div>
+                      <div>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <label>
+                              <IntlMessages id="forms.general-country" />
+                            </label>
+                            <Select
+                              components={{ Input: CustomSelectInput }}
+                              className="react-select"
+                              classNamePrefix="react-select"
+                              name="form-field-name"
+                              value={selectedCountry}
+                              onChange={setSelectedCountry}
+                              options={selectCountry}
+                            />
+                          </Colxx>
+                        </Row>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <label>
+                              <IntlMessages id="forms.province-state" />
+                            </label>
+                            <Select
+                              components={{ Input: CustomSelectInput }}
+                              className="react-select"
+                              classNamePrefix="react-select"
+                              name="form-field-name"
+                              value={selectedOption}
+                              onChange={setSelectedOption}
+                              options={selectData}
+                            />
+                          </Colxx>
+                        </Row>
+                        <Row>
+                          <Colxx xxs="12" md="7" className="mb-5 mx-auto">
+                            <Label for="city">
+                              <IntlMessages id="forms.city" />
+                            </Label>
+                            <Input type="text" name="city" id="city" />
+                          </Colxx>
+                        </Row>
+
+                        <Row>
+                          <p className="text-center text-white mx-auto">
+                            *Your Country is not listed?
+                            <a
+                              className="c-pointer ml-2 text-warning"
+                              href="#scroll"
+                              onClick={(event) => scrollTo(event, 'contact')}
+                            >
+                              Contact us!
+                            </a>
+                          </p>
+                        </Row>
+                        <Row>
+                          <p className="text-center text-white mx-auto">
+                            If you can’t find a member who has what you are
+                            looking for - Create your own "
+                            <a
+                              className="c-pointer text-warning"
+                              onClick={() => {
+                                getCurrentUser()
+                                  ? history.push('/app/listings/need')
+                                  : history.push(loginUrl);
+                              }}
+                            >
+                              Need Fill
+                            </a>
+                            " listing to get your fill moving faster!!
+                          </p>
+                        </Row>
+                        <Row>
+                          <Button color="primary" className="mx-auto">
+                            <IntlMessages id="landing.search-button" />
+                          </Button>
+                        </Row>
+                      </div>
+                    </Colxx>
+                  </Row>
+                </div>
+              ) : (
+                ''
+              )}
+
               <div className="text-white display-4 text-center heading-people">
                 People That Need Dirt
               </div>
@@ -816,7 +1058,7 @@ const Home = (intl) => {
           </div>
 
           <div className="section mb-0">
-            <div className="container" id="themes">
+            <div className="container" id="contact">
               <div className="row mb-5">
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2">
                   <h1>Contact Us</h1>

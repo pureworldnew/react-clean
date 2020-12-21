@@ -38,6 +38,7 @@ module.exports = {
   'landing.contact-subject': 'Subject',
   'landing.contact-message': 'Message',
   'landing.contact-send': 'Send',
+  'landing.search-button': 'Search',
   'menu.my-profile': 'My Profile',
   'menu.edit-profile': 'Edit Profile',
   'menu.listings-need-fill': 'Manage Listings Need Fill',
