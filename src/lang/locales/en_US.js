@@ -69,7 +69,19 @@ module.exports = {
   'forms.contact-information': 'Contact Information',
   'forms.extension': 'Extension',
   'forms.edit-profile-save': 'Save',
-
+  'forms.soil-report': 'Soil Report',
+  'forms.quantity': 'Quantity',
+  'forms.details': 'Details',
+  'forms.conditions': 'Conditions',
+  'forms.select-fill-type': 'Select Fill Type',
+  'wizard.membership': 'Membership',
+  'wizard.step-1': 'Step 1',
+  'wizard.step-2': 'Step 2',
+  'wizard.finish': 'Finish',
+  'table.have-listing': 'Have Listing',
+  'table.need-listing': 'Need Listing',
+  'table.contactor-listing': 'Contactor Listing',
+  'forms.accept': 'Accept',
   /* 02.User Login, Logout, Register */
   'user.login-title': 'Login',
   'user.register': 'Register',
@@ -83,6 +95,8 @@ module.exports = {
   'user.reset-password-button': 'RESET',
   'user.buy': 'BUY',
   'user.username': 'Username',
+  'forms.post-your-need-fill-listing': 'Post Your Need Fill Listing',
+  'forms.submit': 'SUBMIT',
 
   /* 03.Menu */
   'menu.home': 'Home',

@@ -3,6 +3,9 @@ import { Row } from 'reactstrap';
 import IntlMessages from '../../helpers/IntlMessages';
 import { Colxx, Separator } from '../../components/common/CustomBootstrap';
 import Breadcrumb from '../../containers/navs/Breadcrumb';
+import { MyListingsTableHave } from '../../containers/ui/MyListingsTableHave';
+import { MyListingsTableNeed } from '../../containers/ui/MyListingsTableNeed';
+import { MyListingsTableContactor } from '../../containers/ui/MyListingsTableContactor';
 
 const MyListings = ({ match }) => {
   return (
@@ -18,6 +21,15 @@ const MyListings = ({ match }) => {
           <p>
             <IntlMessages id="menu.my-listings" />
           </p>
+        </Colxx>
+        <Colxx xxs="12">
+          <MyListingsTableHave />
+        </Colxx>
+        <Colxx xxs="12">
+          <MyListingsTableNeed />
+        </Colxx>
+        <Colxx xxs="12">
+          <MyListingsTableContactor />
         </Colxx>
       </Row>
     </>

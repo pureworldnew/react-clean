@@ -3,6 +3,7 @@ import { Row } from 'reactstrap';
 import IntlMessages from '../../../helpers/IntlMessages';
 import { Colxx, Separator } from '../../../components/common/CustomBootstrap';
 import Breadcrumb from '../../../containers/navs/Breadcrumb';
+import HaveStep from '../../../containers/wizard/HaveStep';
 
 const Contactor = ({ match }) => (
   <>
@@ -17,6 +18,8 @@ const Contactor = ({ match }) => (
         <p>
           <IntlMessages id="menu.listings-contactor" />
         </p>
+        <div className="mb-4 font-weight-bold">Payment Information</div>
+        <HaveStep />
       </Colxx>
     </Row>
   </>
