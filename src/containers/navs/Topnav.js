@@ -175,6 +175,8 @@ const TopNav = ({
 
   const handleLogout = () => {
     console.log('logout');
+    localStorage.removeItem('gogo_current_user');
+    history.push('/');
   };
 
   const menuButtonClick = (e, _clickCount, _conClassnames) => {
@@ -294,10 +296,15 @@ const TopNav = ({
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
-              <DropdownItem>Account</DropdownItem>
-              <DropdownItem>Features</DropdownItem>
-              <DropdownItem>History</DropdownItem>
-              <DropdownItem>Support</DropdownItem>
+              <DropdownItem onClick={() => history.push('/app/my-profile')}>
+                Account
+              </DropdownItem>
+              <DropdownItem onClick={() => history.push('/app/edit-profile')}>
+                Edit Account
+              </DropdownItem>
+              <DropdownItem onClick={() => history.push('/app/settings')}>
+                Settings
+              </DropdownItem>
               <DropdownItem divider />
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out

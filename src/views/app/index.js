@@ -27,7 +27,11 @@ const App = ({ match }) => {
       <div className="dashboard-wrapper">
         <Suspense fallback={<div className="loading" />}>
           <Switch>
-            <Redirect exact from={`${match.url}/`} to={`${match.url}/gogo`} />
+            <Redirect
+              exact
+              from={`${match.url}/`}
+              to={`${match.url}/my-profile`}
+            />
             <Route
               path={`${match.url}/gogo`}
               render={(props) => <Gogo {...props} />}

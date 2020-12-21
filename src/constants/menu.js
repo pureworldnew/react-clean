@@ -136,22 +136,22 @@ const data = [
   },
   {
     id: 'listings',
-    icon: 'iconsminds-air-balloon-1',
+    icon: 'simple-icon-list',
     label: 'menu.listings',
     to: `${adminRoot}/listings`,
     subs: [
       {
-        icon: 'simple-icon-paper-plane',
+        icon: 'simple-icon-arrow-down-circle',
         label: 'menu.need',
         to: `${adminRoot}/listings/need`,
       },
       {
-        icon: 'simple-icon-paper-plane',
+        icon: 'simple-icon-arrow-up-circle',
         label: 'menu.have',
         to: `${adminRoot}/listings/have`,
       },
       {
-        icon: 'simple-icon-paper-plane',
+        icon: 'simple-icon-notebook',
         label: 'menu.contactor',
         to: `${adminRoot}/listings/contactor`,
       },
@@ -159,25 +159,25 @@ const data = [
   },
   {
     id: 'myprofile',
-    icon: 'iconsminds-bucket',
+    icon: 'iconsminds-profile',
     label: 'menu.my-profile',
     to: `${adminRoot}/my-profile`,
   },
   {
     id: 'editprofile',
-    icon: 'iconsminds-bucket',
+    icon: 'iconsminds-file-edit',
     label: 'menu.edit-profile',
     to: `${adminRoot}/edit-profile`,
   },
   {
     id: 'mylistings',
-    icon: 'iconsminds-bucket',
+    icon: 'simple-icon-playlist',
     label: 'menu.my-listings',
     to: `${adminRoot}/my-listings`,
   },
   {
     id: 'emailnotification',
-    icon: 'iconsminds-bucket',
+    icon: 'simple-icon-settings',
     label: 'menu.settings',
     to: `${adminRoot}/settings`,
   },

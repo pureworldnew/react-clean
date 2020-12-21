@@ -25,7 +25,12 @@ import classnames from 'classnames';
 import { scroller } from 'react-scroll';
 import Headroom from 'react-headroom';
 import GlideComponent from '../components/carousel/GlideComponent';
-import { buyUrl, adminRoot, loginUrl } from '../constants/defaultValues';
+import {
+  buyUrl,
+  adminRoot,
+  loginUrl,
+  registerUrl,
+} from '../constants/defaultValues';
 import IntlMessages from '../helpers/IntlMessages';
 import { Colxx } from '../components/common/CustomBootstrap';
 import { ReactTableWithPaginationCard } from '../containers/ui/ContactorTableCard';
@@ -350,14 +355,22 @@ const Home = (intl) => {
           <li className="nav-item">
             <div className="separator"></div>
           </li>
-          <li className="nav-item text-center">
+          <li className="nav-item pl-4">
             <a
-              className="btn btn-outline-primary btn-sm mobile-menu-cta"
-              target="_blank"
+              className="btn btn-outline-semi-light btn-sm pr-4 pl-4"
               rel="noopener noreferrer"
-              href={buyUrl}
+              href={loginUrl}
             >
-              BUY
+              Sign In
+            </a>
+          </li>
+          <li className="nav-item pl-4">
+            <a
+              className="btn btn-outline-semi-light btn-sm pr-4 pl-4"
+              rel="noopener noreferrer"
+              href={registerUrl}
+            >
+              Sign Up
             </a>
           </li>
         </ul>
@@ -443,7 +456,7 @@ const Home = (intl) => {
                   <a
                     className="btn btn-outline-semi-light btn-sm pr-4 pl-4"
                     rel="noopener noreferrer"
-                    href={loginUrl}
+                    href={registerUrl}
                   >
                     Sign Up
                   </a>

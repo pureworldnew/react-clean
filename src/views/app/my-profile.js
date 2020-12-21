@@ -18,6 +18,12 @@ const MyProfile = ({ match }) => {
           <p>
             <IntlMessages id="menu.my-profile" />
           </p>
+          <h1>My Account</h1>
+          <h3>Account Overview</h3>
+          <p>
+            Welcome fill Management to your Account page. From here you have
+            access to control all aspects of your CleanFILL.net member account.
+          </p>
         </Colxx>
       </Row>
     </>
