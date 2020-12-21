@@ -774,16 +774,17 @@ const Home = ({ history }) => {
                           <p className="text-center text-white mx-auto">
                             If you can’t find a member who has what you are
                             looking for - Create your own "
-                            <a
+                            <span
                               className="c-pointer text-warning"
                               onClick={() => {
                                 getCurrentUser()
                                   ? history.push('/app/listings/need')
                                   : history.push(loginUrl);
                               }}
+                              href="#"
                             >
                               Need Fill
-                            </a>
+                            </span>
                             " listing to get your fill moving faster!!
                           </p>
                         </Row>
